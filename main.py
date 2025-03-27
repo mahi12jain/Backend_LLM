@@ -5,6 +5,8 @@ from sse_starlette.sse import EventSourceResponse
 from models import QueryRequest
 from llm import LLMAssistant
 from query import EventGeneratorService
+import uvicorn
+
 
 app = FastAPI()
 
@@ -60,5 +62,4 @@ async def health_check():
     return {"status": "healthy"}
 
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
